@@ -3,14 +3,7 @@ use std::{collections::{HashMap, HashSet}, fs};
 pub type Error = Box<dyn std::error::Error>;
 pub type Result<T> = std::result::Result<T, Error>;
 
-struct Coord {
-    x: u32,
-    y: u32,
-}
-
-impl Coord {
-    const MOVES:[(i32, i32); 8] = [(1,0), (-1, 0), (0, -1),  (0, 1), (-1, -1), (1, -1), (-1, 1), (1, 1)];
-}
+const MOVES:[(i32, i32); 8] = [(1,0), (-1, 0), (0, -1),  (0, 1), (-1, -1), (1, -1), (-1, 1), (1, 1)];
 
 fn main() -> Result<()> {
     let _result1 = part1();
@@ -74,7 +67,7 @@ fn find_occurances(input: String, search_word: &str) -> HashSet<Vec<(i32, i32)>>
     for (x, y) in leads {
         let mut occ = [true; 8];
         for i in 1..search_word.len() {
-            for (idx, (pos_x, pos_y)) in Coord::MOVES.map(|(x1, y1)| (x + (x1 * i as i32), y + (y1 * i as i32))).iter().enumerate() {
+            for (idx, (pos_x, pos_y)) in MOVES.map(|(x1, y1)| (x + (x1 * i as i32), y + (y1 * i as i32))).iter().enumerate() {
 
                 if !map.contains_key(&(*pos_x, *pos_y)) || map[&(*pos_x, *pos_y)] != search_word.chars().nth(i).unwrap() {
                     occ[idx] = false;
@@ -87,7 +80,7 @@ fn find_occurances(input: String, search_word: &str) -> HashSet<Vec<(i32, i32)>>
             if i == 0 {
                 (x, y)
             } else {
-                (x + (Coord::MOVES[idx].0 * i as i32), y + (Coord::MOVES[idx].1 * i as i32))
+                (x + (MOVES[idx].0 * i as i32), y + (MOVES[idx].1 * i as i32))
             }
         }).collect()) {
             word_occ.insert(set);
