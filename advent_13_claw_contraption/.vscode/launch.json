@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'advent_13_claw_contraption'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=advent_13_claw_contraption",
+                    "--package=advent_13_claw_contraption"
+                ],
+                "filter": {
+                    "name": "advent_13_claw_contraption",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'advent_13_claw_contraption'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=advent_13_claw_contraption",
+                    "--package=advent_13_claw_contraption"
+                ],
+                "filter": {
+                    "name": "advent_13_claw_contraption",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
