@@ -4,10 +4,10 @@ pub type Error = Box<dyn std::error::Error>;
 pub type Result<T> = std::result::Result<T, Error>;
 
 fn main() -> Result<()> {
-    let _result1 = part1();
-    let result2 = part2();
+    _ = part1();
+    _ = part2();
 
-    result2
+    Ok(())
 }
 
 fn part1() -> Result<()> {
